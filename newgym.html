@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Power Gym</title>
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* SEARCH BAR */
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 6px 10px;
+            width: 500px;
+            border: none;
+            outline: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .search-box button {
+            padding: 6px 12px;
+            border: none;
+            background: red;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* .search-box button:hover {
+    background: 2px solid greenyellow;
+} */
+
+        /* NAVBAR */
+        .bounce-circle {
+            position: absolute;
+            bottom: 50px;
+            right: 80px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            animation: bounce 2s infinite;
+            border: 4px solid red;
+        }
+
+        .bounce-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Bounce animation */
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+        }
+
+        nav {
+            background: black;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* HEADER */
+        header {
+            height: 100vh;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url("https://images.unsplash.com/photo-1554284126-aa88f22d8b74");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 60px;
+            animation: fadeIn 2s;
+        }
+
+        header p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        /* BODY SECTIONS */
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            color: blueviolet;
+            text-decoration: underline;
+            text-decoration-style: double;
+            text-decoration-color: greenyellow;
+            font-size: 80px;
+            margin-bottom: 10px;
+        }
+        #about{
+            background-color: #2ba361;
+        }
+
+        /* PROGRAMS */
+        /* programs start */
+        #programs {
+    padding: 80px 60px;
+    text-align: center;
+    background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b");
+    background-size: cover;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    color: white;
+}
+
+#programs h2 {
+    margin-bottom: 40px;
+    color: #ff4d4d; /* Standout title color */
+}
+
+/* Keep program cards style same */
+.programs {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+        /* programs end */
+
+.programs {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+        /* PROGRAMS */
+
+        .programs {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            width: 260px;
+            background: #111;
+            color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.4s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            padding: 15px;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+        }
+
+        /* DIET SECTION */
+        #diets {
+            background: #f5f5f5;
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .diet-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .diet-card {
+            width: 260px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s;
+        }
+
+        .diet-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .diet-card h3 {
+            padding: 15px;
+            color: #111;
+        }
+
+        .diet-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* CONTACT FORM */
+        /* form {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        form button {
+            padding: 12px;
+            width: 100%;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .diet-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        } */
+
+        /* CONTACT SECTION */
+#contact {
+    padding: 10px 20px;
+    background: url("https://images.unsplash.com/photo-1594737625785-89e4d31a8f2b") no-repeat center center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+/* Overlay for dark effect */
+#contact::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1;
+}
+
+/* Center form container */
+.contact-container {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    margin: auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* frosted glass effect */
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Form inputs */
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.contact-container input::placeholder,
+.contact-container textarea::placeholder {
+    color: #ddd;
+}
+
+/* Button */
+.contact-container button {
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: red;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-container button:hover {
+    background: darkred;
+}
+
+        /* FOOTER */
+      footer {
+    background: #111;
+    color: white;
+    padding: 50px 60px 20px 60px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: red;
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: red;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+}
+
+        /* ANIMATION */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h2>POWER GYM</h2>
+        <!-- Search Bar -->
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#diets">Diets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+
+    </nav>
+
+    <!-- HEADER -->
+    <div class="bounce-circle">
+        <img src="./gumlogo.png" alt="" style=" border: 3px solid blue">
+    </div>
+    <!-- eader id="home">
+    <div>
+        <h1>Build Your Body</h1>
+        <p>Train Hard • Stay Strong</p> -->
+
+    <div class="bounce-circle">
+        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07d" alt="Gym">
+    </div>
+    </div>
+    </header>
+    <header id="home">
+        <div>
+            <h1>Build Your Body</h1>
+            <p>Train Hard • Stay Strong</p>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p style="background-color: aqua; font-family: Arial, Helvetica, sans-serif; font-weight: 600;">Power Gym helps you achieve strength, fitness, and confidence with professional training and modern
+            equipment.
+            Going to the gym is very important for both fitness and overall life because it helps keep the body strong,
+            active, and healthy. Regular gym workouts improve muscle strength, stamina, and flexibility, which makes
+            daily activities easier and reduces the risk of injuries. Exercise at the gym also supports heart health,
+            controls body weight, and boosts immunity. Beyond physical benefits, the gym plays a big role in mental
+            well-being by reducing stress, anxiety, and depression while improving focus and confidence. It builds
+            discipline, self-motivation, and a positive lifestyle, helping people feel more energetic, confident, and
+            balanced in their everyday life.
+        </p>
+    </section>
+
+    <!-- PROGRAMS -->
+<section id="programs">
+    <h2>Our Exercise Traning Programs</h2>
+
+    <div class="programs">
+        <div class="card">
+            <img src="./strength.jpg">
+            <h3>Strength Training</h3>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1">
+            <h3>Fat Loss</h3>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b">
+            <h3>Yoga & Fitness</h3>
+        </div>
+
+        <div class="card">
+            <img src="./cardio training.jpg">
+            <h3>Cardio Training</h3>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b">
+            <h3>Personal Training</h3>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1">
+            <h3>CrossFit</h3>
+        </div>
+    </div>
+</section>
+    <!-- end proram -->
+    <section id="programs">
+        <h2>Our Programs</h2>
+        <div class="programs">
+            <div class="card">
+                <img src="./difer.jpg">
+                <h3>Strength Training</h3>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1">
+                <h3>Fat Loss</h3>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b">
+                <h3>Yoga & Fitness</h3>
+            </div>
+        </div>
+    </section>
+    <!-- gym diet section -->
+    <section id="diets">
+        <h2>Gym Diet Plans</h2>
+
+        <div class="diet-cards">
+            <div class="diet-card">
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061" alt="Protein Diet">
+                <h3>High Protein Diet</h3>
+            </div>
+
+            <div class="diet-card">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Healthy Meal">
+                <h3>Healthy Meals</h3>
+            </div>
+
+            <div class="diet-card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Balanced Diet">
+                <h3>Balanced Diet</h3>
+            </div>
+        </div>
+    </section>
+    <section id="diets">
+        <h2>Gym Diet Plans</h2>
+
+        <div class="diet-cards">
+            <div class="diet-card">
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061" alt="Protein Diet">
+                <h3>High Protein Diet</h3>
+            </div>
+
+            <div class="diet-card">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Healthy Food">
+                <h3>Healthy Meals</h3>
+            </div>
+
+            <div class="diet-card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Balanced Diet">
+                <h3>Balanced Diet</h3>
+            </div>
+
+            <div class="diet-card">
+                <img src="./gymfish.jpg" alt="Chicken Meal">
+                <h3>Eat Healthy Fish</h3>
+            </div>
+
+            <div class="diet-card">
+                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe" alt="Vegetarian Diet">
+                <h3>Vegetarian Diet</h3>
+            </div>
+
+            <div class="diet-card">
+                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352" alt="Breakfast Diet">
+                <h3>Healthy Breakfast</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <!-- <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="4" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section> -->
+<section id="contact">
+    <!-- <h2>Contact Us</h2> -->
+<h1 style="color: rgb(37, 32, 32); font-family: Impact;">Contact us<br>Enroll now
+</h1>
+    <div class="contact-container">
+        <h1>Contact us</h1>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="4" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
+
+    <!-- FOOTER -->
+    <footer>
+    <div class="footer-container">
+        <!-- About -->
+        <!-- <div class="footer-section">
+            <h3>About Power Gym</h3>
+            <p>Power Gym helps you achieve strength, fitness, and confidence with professional training and modern equipment.</p>
+        </div> -->
+
+        <!-- Juice Company Links -->
+        <div class="footer-section">
+            <h3>Juice Companies</h3>
+            <ul>
+                <li><a href="https://www.juicero.com" target="_blank">Juicero</a></li>
+                <li><a href="https://www.juicyjuice.com" target="_blank">Juicy Juice</a></li>
+                <li><a href="https://www.nakedjuice.com" target="_blank">Naked Juice</a></li>
+            </ul>
+        </div>
+
+        <!-- Gym Equipment Links -->
+        <div class="footer-section">
+            <h3>Gym Equipment</h3>
+            <ul>
+                <li><a href="https://www.nordictrack.com" target="_blank">NordicTrack</a></li>
+                <li><a href="https://www.treadmillfactory.com" target="_blank">Treadmill Factory</a></li>
+                <li><a href="https://www.dumbbells.com" target="_blank">Dumbbells.com</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact / Social -->
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email: powergym@gmail.com</p>
+            <p>Phone: +123 456 7890</p>
+        </div>
+    </div>
+
+    <p class="footer-bottom">© 2026 Power Gym | All Rights Reserved</p>
+</footer>
+</body>
+
+</html>
